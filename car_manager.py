@@ -8,6 +8,7 @@ MOVE_INCREMENT = 10
 class CarManager():
     def __init__(self):
         self.all_cars = []
+        self.speed = STARTING_MOVE_DISTANCE
 
     def create_car(self):
         new_car = Turtle("square")
@@ -20,4 +21,9 @@ class CarManager():
     def move_cars(self):
         for car in self.all_cars:
             car.backward(STARTING_MOVE_DISTANCE)
+
+    def speed_up(self):
+        self.speed += MOVE_INCREMENT
+        for car in self.all_cars:
+            car.backward(self.speed)
 
